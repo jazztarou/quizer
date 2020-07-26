@@ -43,13 +43,15 @@ class ViewController: UIViewController {
         let actualQuestion = quiz[questionNumber]
         let actualAnswer = actualQuestion.answer
         
-        (userAnswer == actualAnswer) ? NSLog("* Right") : NSLog("* Wrong")
+        sender.backgroundColor = (userAnswer == actualAnswer) ? UIColor.green : UIColor.red
         
         if questionNumber + 1 < quiz.count {
             questionNumber += 1
         } else {
             questionNumber = 0
         }
+        
+        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateButtonColor), userInfo: nil, repeats: false)
         
         updateQuestionNumber()
         updateProgressBar()
@@ -61,6 +63,11 @@ class ViewController: UIViewController {
     
     private func updateProgressBar() {
         progressBarView.progress = Float(questionNumber+1) / Float(quiz.count)
+    }
+    
+    @objc private func updateButtonColor() {
+        trueButton.backgroundColor = UIColor.clear
+        falseButton.backgroundColor = UIColor.clear
     }
 }
 
