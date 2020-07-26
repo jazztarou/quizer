@@ -83,6 +83,7 @@
                     <connections>
                         <outlet property="falseButton" destination="tbn-vQ-GyC" id="UeA-No-AUJ"/>
                         <outlet property="progressBar" destination="TXm-qh-7Xg" id="Xu0-Ct-oiT"/>
+                        <outlet property="progressBarView" destination="TXm-qh-7Xg" id="DIR-vM-YPt"/>
                         <outlet property="questionLabel" destination="rSI-li-mhO" id="jE1-xZ-4bn"/>
                         <outlet property="trueButton" destination="oVw-Hl-IRe" id="PIy-MB-XhY"/>
                     </connections>

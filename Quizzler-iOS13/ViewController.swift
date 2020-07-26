@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var progressBarView: UIProgressView!
     
     let quiz = [
         Question(q: "A slug's blood is green.", a: "True"),
@@ -34,6 +35,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateQuestionNumber()
+        updateProgressBar()
     }
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
@@ -50,10 +52,15 @@ class ViewController: UIViewController {
         }
         
         updateQuestionNumber()
+        updateProgressBar()
     }
     
     private func updateQuestionNumber() {
         questionLabel.text = quiz[questionNumber].text
+    }
+    
+    private func updateProgressBar() {
+        progressBarView.progress = Float(questionNumber+1) / Float(quiz.count)
     }
 }
 
